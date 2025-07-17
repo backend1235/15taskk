@@ -14,11 +14,11 @@ jobs:
         image: postgres:latest
         ports: ["5432:5432"]
         env:
-          POSTGRES_USER: suikim
+          POSTGRES_USER: alish
           POSTGRES_PASSWORD: admin
           POSTGRES_DB: mydb
         options: >-
-          --health-cmd "pg_isready -U suikim"
+          --health-cmd "pg_isready -U alish"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
@@ -43,7 +43,7 @@ jobs:
 
       - name: 🧪 Run tests
         env:
-          DATABASE_URL: postgresql+asyncpg://suikim:admin@localhost/mydb
+          DATABASE_URL: postgresql+asyncpg://alish:admin@localhost/mydb
           SECRET_KEY: supersecret
           CELERY_BROKER_URL: redis://localhost:6379/0
           CELERY_RESULT_BACKEND: redis://localhost:6379/0
